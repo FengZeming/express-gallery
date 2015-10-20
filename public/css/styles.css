@@ -2139,34 +2139,40 @@ blockquote p {
   h3 {
     page-break-after: avoid; } }
 
-/* line 8, stdin */
+/* line 11, stdin */
 html {
   font-size: 14px; }
 
-/* line 12, stdin */
+/* line 15, stdin */
 body {
   background-color: #fff; }
 
-/* line 16, stdin */
+/* line 19, stdin */
 h1 {
-  color: #555; }
+  color: #777; }
 
-/* line 20, stdin */
+/* line 23, stdin */
 .header-container {
   margin: 5% auto; }
   @media only screen and (min-width: 40.0625em) {
-    /* line 20, stdin */
+    /* line 23, stdin */
     .header-container {
-      border-top: 1px dashed #bbb; } }
+      border-top: 1px dashed #ccc; } }
 
-/* line 27, stdin */
+/* line 30, stdin */
 .header-info {
   margin: 3% auto;
   font-size: 15px;
   color: #999;
-  border-left: 1px dashed #bbb; }
+  border-left: 1px dashed #ccc; }
 
-/* line 34, stdin */
+/* line 37, stdin */
 .header-title {
   margin: 3% auto;
-  font-size: 4.2rem; }
+  font-size: 5rem;
+  font-weight: bold; }
+  @media only screen and (max-width: 40em) {
+    /* line 37, stdin */
+    .header-title {
+      font-size: 4.5rem;
+      margin: 3%; } }

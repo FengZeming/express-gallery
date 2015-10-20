@@ -5,6 +5,9 @@
 @import 'foundation/components/visibility';
 @import 'foundation/components/type';
 
+$headerMargin: 3% auto;
+$border-color: #ccc;
+
 html{
   font-size: 14px;
 }
@@ -14,24 +17,29 @@ body{
 }
 
 h1{
-  color: #555;
+  color: #777;
 }
 
 .header-container{
   margin: 5% auto;
   @media #{$medium-up}{
-    border-top: 1px dashed #bbb;
+    border-top: 1px dashed $border-color;
   };
 }
 
 .header-info{
-  margin: 3% auto;
+  margin: $headerMargin;
   font-size: 15px;
   color: #999;
-  border-left: 1px dashed #bbb;
+  border-left: 1px dashed $border-color;
 }
 
 .header-title{
-  margin: 3% auto;
-  font-size: 4.2rem;
+  margin: $headerMargin;
+  font-size: 5rem;
+  font-weight: bold;
+  @media #{$small-only}{
+    font-size: 4.5rem;
+    margin: 3%;
+  }
 }
