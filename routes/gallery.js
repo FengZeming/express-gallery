@@ -13,7 +13,6 @@ router.get('/:id', function (req, res) {
   res.render('single');
 });
 
-
 router.get('/:id/edit', function (req, res) {
   res.render('edit');
 });

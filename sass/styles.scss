@@ -1,6 +1,11 @@
 /* -- FOUNDATION -- */
 @import 'partials/settings';
 
+@import 'foundation/components/grid';
+@import 'foundation/components/visibility';
+@import 'foundation/components/type';
+
+
 body{
   background-color: #999;
 }
