@@ -5,13 +5,14 @@ router.get('/', function (req, res) {
   res.render('index');
 });
 
+router.get('/new', function (req, res) {
+  res.render('new');
+});
+
 router.get('/:id', function (req, res) {
   res.render('single');
 });
 
-router.get('/new', function (req, res) {
-  res.render('new');
-});
 
 router.get('/:id/edit', function (req, res) {
   res.render('edit');
