@@ -5,7 +5,33 @@
 @import 'foundation/components/visibility';
 @import 'foundation/components/type';
 
+html{
+  font-size: 14px;
+}
 
 body{
-  background-color: #999;
+  background-color: #fff;
+}
+
+h1{
+  color: #555;
+}
+
+.header-container{
+  margin: 5% auto;
+  @media #{$medium-up}{
+    border-top: 1px dashed #bbb;
+  };
+}
+
+.header-info{
+  margin: 3% auto;
+  font-size: 15px;
+  color: #999;
+  border-left: 1px dashed #bbb;
+}
+
+.header-title{
+  margin: 3% auto;
+  font-size: 4.2rem;
 }
