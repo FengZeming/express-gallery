@@ -4,6 +4,7 @@
 @import 'foundation/components/grid';
 @import 'foundation/components/visibility';
 @import 'foundation/components/type';
+@import 'foundation/components/block-grid';
 
 $headerMargin: 3% auto;
 $border-color: #ccc;
@@ -42,4 +43,13 @@ h1{
     font-size: 4.5rem;
     margin: 3%;
   }
+}
+
+.spacer{
+  margin: 3%;
+  border-top: 1px dashed $border-color;
+}
+
+.image-other{
+  max-height: 50%;
 }
