@@ -8,7 +8,7 @@ app.set('views', './views');
 app.use(express.static('./public'));
 
 app.get('/', function (req, res) {
-
+  res.render('index');
 });
 
 app.use('/gallery', gallery);
