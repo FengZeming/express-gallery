@@ -6,5 +6,5 @@ mixin generateListings(listings)
           .image-container
             a(href='/gallery/'+listings[j].id)
               img.image-listings(src= listings[j].picture)
-            div.image-info=listings[j].description + ' ' +  listings[j].link
+            div.image-info=listings[j].description + ' - ' +  listings[j].link
     .spacer

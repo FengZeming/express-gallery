@@ -1,4 +1,15 @@
 extends ./layouts/mainLayout
 
 block content
-  h1 new page
+    form
+    .row
+      .large-6.large-offset-3.columns
+        label Picture URL
+          input.picture-input(type="text" placeholder="...")
+        label Short Description
+          input.short-input(type="text" placeholder="...")
+        label Official Link
+          input.official-input(type="text" placeholder="...")
+        label Long Description
+          textarea.long-input(type="text" placeholder="...")
+        a.button.radius(href="#") POST
