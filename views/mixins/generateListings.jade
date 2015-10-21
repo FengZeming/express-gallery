@@ -4,5 +4,6 @@ mixin generateListings(listings)
       - for (var j = i; j < 3+i; j++)
         .small-12.medium-4.columns
           .image-container
-            img.image.image-other(src= listings[j])
+            img.image.image-other(src= listings[j].picture)
+            div.image-info=listings[j].description + ' ' +  listings[j].link
     .spacer

@@ -2580,5 +2580,11 @@ h1 {
     margin: 3%; } }
 
 /* line 68, stdin */
+.image-info {
+  margin-top: 5%;
+  font-size: .9rem;
+  color: #999; }
+
+/* line 74, stdin */
 .end-listing {
   margin-bottom: 5%; }
