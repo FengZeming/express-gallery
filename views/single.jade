@@ -5,7 +5,9 @@ block content
   .row
     .medium-8.columns
       .single-detail
-        .detail-info=detail.description + ' - ' + detail.link
+        .single-info=detail.description + ' - ' + detail.link
         img.image-masthead(src=detail.picture)
     .medium-4.columns
       +generateSidebar(listings)
+    .large-12.columns
+      .spacer

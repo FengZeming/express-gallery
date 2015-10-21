@@ -3,6 +3,7 @@ mixin generateSidebar(listings)
     .row.show-for-medium-up
       - for (var j = i; j < 3+i; j++)
         .medium-12.columns
-          .image-container
-            img.image-listings(src= listings[j].picture)
-            div.image-info=listings[j].description + ' ' +  listings[j].link
+          .sidebar-container
+            a(href='/gallery/'+listings[j].id)
+              img.image-listings(src= listings[j].picture)
+            div.sidebar-info=listings[j].description + ' - ' +  listings[j].link

@@ -26,9 +26,9 @@ router.get('/:id', function (req, res) {
       listings : listingsArray,
       detail : this_picture[0]
     });
+  } else {
+    res.render('404');
   }
-
-  res.render('404');
 });
 
 router.get('/:id/edit', function (req, res) {
