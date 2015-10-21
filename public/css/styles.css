@@ -2611,12 +2611,18 @@ img {
   color: #bbb; }
 
 /* line 100, stdin */
+.single-details {
+  margin-top: 5%;
+  font-size: .9rem;
+  color: #777; }
+
+/* line 106, stdin */
 .sidebar-info {
   margin-top: 5%;
   font-size: .9rem;
   font-weight: bold;
   color: #bbb; }
 
-/* line 107, stdin */
+/* line 113, stdin */
 .sidebar-container {
   margin: 2%; }
