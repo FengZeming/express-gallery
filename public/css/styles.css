@@ -2546,7 +2546,7 @@ h1 {
 
 /* line 32, stdin */
 .header-info {
-  margin: 5% auto;
+  margin: 3% 0 auto 5%;
   font-size: .9rem;
   color: #999;
   border-left: 1px dashed #ccc; }
@@ -2569,7 +2569,7 @@ h1 {
 
 @media only screen and (min-width: 40.0625em) {
   /* line 54, stdin */
-  .image-other {
+  .image-listings {
     min-height: 17em;
     max-height: 17em;
     min-width: 100%; } }
@@ -2588,3 +2588,9 @@ h1 {
 /* line 74, stdin */
 .end-listing {
   margin-bottom: 5%; }
+
+@media only screen and (max-width: 40em) {
+  /* line 78, stdin */
+  .single-detail {
+    margin-left: 5%;
+    margin-right: 5%; } }

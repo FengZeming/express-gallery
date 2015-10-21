@@ -1,4 +1,11 @@
 extends ./layouts/mainLayout
+include ./mixins/generateSidebar
 
 block content
-  h1 single page
+  .row
+    .medium-8.columns
+      .single-detail
+        .detail-info=detail.description + ' - ' + detail.link
+        img.image-masthead(src=detail.picture)
+    .medium-4.columns
+      +generateSidebar(listings)

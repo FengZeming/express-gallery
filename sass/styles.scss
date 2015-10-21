@@ -30,7 +30,7 @@ h1{
 }
 
 .header-info{
-  margin: $headerMargin;
+  margin: 3% 0 auto 5%;
   font-size: .9rem;
   color: #999;
   border-left: 1px dashed $border-color;
@@ -51,7 +51,7 @@ h1{
   border-top: 1px dashed $border-color;
 }
 
-.image-other{
+.image-listings{
   @media #{$medium-up}{
     min-height: 17em;
     max-height: 17em;
@@ -73,4 +73,11 @@ h1{
 
 .end-listing{
   margin-bottom: 5%;
+}
+
+.single-detail{
+  @media #{$small-only}{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
