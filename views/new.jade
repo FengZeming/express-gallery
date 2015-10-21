@@ -1,15 +1,17 @@
 extends ./layouts/mainLayout
 
 block content
-    form
-    .row
-      .large-6.large-offset-3.columns
-        label Picture URL
-          input.picture-input(type="text" placeholder="...")
-        label Short Description
-          input.short-input(type="text" placeholder="...")
-        label Official Link
-          input.official-input(type="text" placeholder="...")
-        label Long Description
-          textarea.long-input(type="text" placeholder="...")
-        a.button.radius(href="#") POST
+    form(action="/gallery" method="POST")
+      .row
+        .large-6.large-offset-3.columns
+          label Picture URL
+            input(type="text" name="url" placeholder="...")
+          label Short Description
+            input(type="text" name="short" placeholder="...")
+          label Official Link
+            input(type="text" name="link" placeholder="...")
+          label ID
+            input(type="text" name="id" placeholder="...")
+          label Long Description
+            textarea(type="text" name="long" placeholder="...")
+          button POST

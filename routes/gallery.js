@@ -3,17 +3,35 @@ var router = express.Router();
 var listingsArray = require('./../listingsArray');
 
 router.get('/', function (req, res) {
-  res.render('index', {
-    listings : listingsArray
+  var listingCopy = listingsArray.map(function (c) {
+    return c;
   });
-});
-
-router.post('/', function (req, res) {
-  res.render('post');
+  var listings2d = [];
+  while(listingCopy.length) {
+    listings2d.push(listingCopy.splice(0, 3));
+  }
+  res.render('index', {
+    listings : listings2d
+  });
 });
 
 router.get('/new', function (req, res) {
   res.render('new');
+});
+
+router.post('/', function (req, res) {
+  var newPicture = {
+    picture : req.body.url,
+    description : req.body.short,
+    link : req.body.link,
+    id : req.body.id,
+    long_description : req.body.long
+  };
+  listingsArray.push(newPicture);
+  res.render('single',{
+    listings : listingsArray,
+    detail : newPicture
+  });
 });
 
 router.get('/:id', function (req, res) {
