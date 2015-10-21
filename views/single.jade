@@ -1,13 +1,12 @@
 extends ./layouts/mainLayout
 include ./mixins/generateSidebar
+include ./mixins/generateSingle
 
 block content
+  include ./partials/_postnav
   .row
     .medium-8.columns
-      .single-detail
-        .single-info=detail.description + ' - ' + detail.link
-        img.image-masthead(src=detail.picture)
-        .single-details=detail.long_description
+      +generateSingle(description)
     .medium-4.columns
       +generateSidebar(listings)
     .large-12.columns
