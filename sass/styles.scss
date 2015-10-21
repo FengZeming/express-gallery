@@ -6,7 +6,8 @@
 @import 'foundation/components/type';
 @import 'foundation/components/block-grid';
 
-$headerMargin: 3% auto;
+$headerMargin: 5% auto;
+$spaceMargin: 3%;
 $border-color: #ccc;
 
 html{
@@ -22,7 +23,7 @@ h1{
 }
 
 .header-container{
-  margin: 5% auto;
+  margin: $headerMargin;
   @media #{$medium-up}{
     border-top: 1px dashed $border-color;
   };
@@ -30,26 +31,40 @@ h1{
 
 .header-info{
   margin: $headerMargin;
-  font-size: 15px;
+  font-size: .9rem;
   color: #999;
   border-left: 1px dashed $border-color;
 }
 
 .header-title{
-  margin: $headerMargin;
+  margin: 3% auto;
   font-size: 5rem;
   font-weight: bold;
   @media #{$small-only}{
     font-size: 4.5rem;
-    margin: 3%;
+    margin: $spaceMargin;
   }
 }
 
 .spacer{
-  margin: 3%;
+  margin: 2%;
   border-top: 1px dashed $border-color;
 }
 
 .image-other{
-  max-height: 50%;
+  @media #{$medium-up}{
+    min-height: 17em;
+    max-height: 17em;
+    min-width: 100%;
+  }
+}
+
+.image-container{
+  @media #{$small-only}{
+    margin: $spaceMargin;
+  }
+}
+
+.end-listing{
+  margin-bottom: 5%;
 }

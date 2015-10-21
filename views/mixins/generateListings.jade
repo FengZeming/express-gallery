@@ -1,6 +1,8 @@
 mixin generateListings(listings)
-  ul.medium-block-grid-3(data-equalizer='')
-    each listing in listings
-        li
-          div(data-equalizer-watch='')
-            img.image.image-other(src= listing)
+  - for (var i = 0; i < listings.length; i += 3)
+    .row
+      - for (var j = i; j < 3+i; j++)
+        .small-12.medium-4.columns
+          .image-container
+            img.image.image-other(src= listings[j])
+    .spacer

@@ -2524,49 +2524,61 @@ blockquote p {
     .large-block-grid-12 > li:nth-of-type(12n+1) {
       clear: both; } }
 
-/* line 12, stdin */
+/* line 13, stdin */
 html {
   font-size: 14px; }
 
-/* line 16, stdin */
+/* line 17, stdin */
 body {
   background-color: #fff; }
 
-/* line 20, stdin */
+/* line 21, stdin */
 h1 {
   color: #777; }
 
-/* line 24, stdin */
+/* line 25, stdin */
 .header-container {
   margin: 5% auto; }
   @media only screen and (min-width: 40.0625em) {
-    /* line 24, stdin */
+    /* line 25, stdin */
     .header-container {
       border-top: 1px dashed #ccc; } }
 
-/* line 31, stdin */
+/* line 32, stdin */
 .header-info {
-  margin: 3% auto;
-  font-size: 15px;
+  margin: 5% auto;
+  font-size: .9rem;
   color: #999;
   border-left: 1px dashed #ccc; }
 
-/* line 38, stdin */
+/* line 39, stdin */
 .header-title {
   margin: 3% auto;
   font-size: 5rem;
   font-weight: bold; }
   @media only screen and (max-width: 40em) {
-    /* line 38, stdin */
+    /* line 39, stdin */
     .header-title {
       font-size: 4.5rem;
       margin: 3%; } }
 
-/* line 48, stdin */
+/* line 49, stdin */
 .spacer {
-  margin: 3%;
+  margin: 2%;
   border-top: 1px dashed #ccc; }
 
-/* line 53, stdin */
-.image-other {
-  max-height: 50%; }
+@media only screen and (min-width: 40.0625em) {
+  /* line 54, stdin */
+  .image-other {
+    min-height: 17em;
+    max-height: 17em;
+    min-width: 100%; } }
+
+@media only screen and (max-width: 40em) {
+  /* line 62, stdin */
+  .image-container {
+    margin: 3%; } }
+
+/* line 68, stdin */
+.end-listing {
+  margin-bottom: 5%; }
