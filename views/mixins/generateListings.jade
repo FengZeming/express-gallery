@@ -1,10 +1,10 @@
 mixin generateListings(listings)
   - for (var i = 0; i < listings.length; i += 3)
-    .row
-      - for (var j = i; j < 3+i; j++)
-        .small-12.medium-4.columns
-          .image-container
-            a(href='/gallery/'+listings[j].id)
-              img.image-listings(src= listings[j].picture)
-            div.image-info=listings[j].description + ' - ' +  listings[j].link
-    .spacer
+    if (i >= 3)
+      .row.show-for-medium-up
+        include ./../partials/_listing
+      .spacer.show-for-medium-up
+    else
+      .row
+        include ./../partials/_listing
+      .spacer
