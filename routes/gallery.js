@@ -28,8 +28,9 @@ router.post('/', function (req, res) {
     shortDesc : req.body.shortDesc,
     link : req.body.link,
     longDesc : req.body.longDesc
+  }).then(function(object){
+    res.redirect('/gallery/' + object.id);
   });
-  res.render('post');
 });
 
 router.get('/:id', function (req, res) {
