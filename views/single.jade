@@ -7,6 +7,8 @@ block content
   .row
     .medium-8.columns
       +generateSingle(detail)
+      a(href="/gallery/"+ id +"/edit")
+        button.edit-button EDIT
     .medium-4.columns
       +generateSidebar(listings)
     .large-12.columns

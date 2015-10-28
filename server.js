@@ -1,9 +1,9 @@
-var gallery = require('./routes/gallery');
-var bodyParser = require('body-parser');
 var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
 var db = require('./models');
 var jade = require('jade');
-var app = express();
+var gallery = require('./routes/gallery');
 
 // using jade templating
 app.set('view engine', 'jade');

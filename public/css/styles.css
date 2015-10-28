@@ -3477,12 +3477,16 @@ img {
   color: #777; }
 
 /* line 108, stdin */
+.edit-button {
+  margin-top: 5%; }
+
+/* line 112, stdin */
 .sidebar-info {
   margin-top: 5%;
   font-size: .9rem;
   font-weight: bold;
   color: #bbb; }
 
-/* line 115, stdin */
+/* line 119, stdin */
 .sidebar-container {
   margin: 2%; }

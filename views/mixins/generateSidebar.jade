@@ -1,8 +1,8 @@
 mixin generateSidebar(listings)
   .row.show-for-medium-up
-    - for (var i = 0; i < 3; i++)
+    each listing in listings
       .medium-12.columns
         .sidebar-container
-          a(href='/gallery/'+listings[i].id)
-            img.image-listings(src= listings[i].url)
-          div.sidebar-info=listings[i].shortDesc + ' - ' +  listings[i].link
+          a(href='/gallery/'+listing.id)
+            img.image-listings(src= listing.url)
+          div.sidebar-info=listing.shortDesc + ' - ' +  listing.link
