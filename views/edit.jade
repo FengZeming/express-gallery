@@ -17,3 +17,6 @@ block content
             textarea(type="text" name="longDesc" placeholder="...")
           button SAVE
             input(type="hidden" name="_method" value="PUT")
+      form(action="/gallery/#{id}/edit" method="POST" enctype="application/x-www-form-urlencoded")
+        button DELETE
+          input(type="hidden" name="_method" value="DELETE")

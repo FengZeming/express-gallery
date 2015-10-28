@@ -92,6 +92,16 @@ router
         res.redirect('/gallery/'+ newPost.id);
       });
     });
+  })
+  .delete(function(req, res){
+    db.post.destroy({
+      where : {
+        id : req.params.id
+      }
+    })
+    .then(function(){
+      res.redirect('/gallery');
+    })
   });
 
 // export for server.js
