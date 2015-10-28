@@ -1,9 +1,12 @@
 extends ./layouts/mainLayout
+include ./mixins/generateSingle
 
 block content
-    form(action="/gallery/#{id}/edit" method="PUT")
-      .row
-        .large-6.large-offset-3.columns
+  .row
+    .large-12.columns
+      +generateSingle(detail)
+      form(action="/gallery/#{id}/edit" method="POST" enctype="application/x-www-form-urlencoded")
+        .large-6.large-offset-3.columns.edit-info
           label Picture URL
             input(type="text" name="url" placeholder="...")
           label Short Description
@@ -12,4 +15,5 @@ block content
             input(type="text" name="link" placeholder="...")
           label Long Description
             textarea(type="text" name="longDesc" placeholder="...")
-            button SAVE
+          button SAVE
+            input(type="hidden" name="_method" value="PUT")
