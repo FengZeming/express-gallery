@@ -4,5 +4,5 @@ mixin generateSidebar(listings)
       .medium-12.columns
         .sidebar-container
           a(href='/gallery/'+listings[i].id)
-            img.image-listings(src= listings[i].picture)
-          div.sidebar-info=listings[i].description + ' - ' +  listings[i].link
+            img.image-listings(src= listings[i].url)
+          div.sidebar-info=listings[i].shortDesc + ' - ' +  listings[i].link

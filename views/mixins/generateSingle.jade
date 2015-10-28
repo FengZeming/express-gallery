@@ -1,5 +1,5 @@
-mixin generateSingle(description)
+mixin generateSingle(detail)
   .single-detail
-    .single-info=detail.description + ' - ' + detail.link
-    img.image-masthead(src=detail.picture)
-    .single-details=detail.long_description
+    .single-info=detail.shortDesc + ' - ' + detail.link
+    img.image-masthead(src=detail.url)
+    .single-details=detail.longDesc
