@@ -2,7 +2,10 @@ extends ./layouts/mainLayout
 include ./mixins/generateListings
 
 block content
-  include ./partials/_postnav
+  if user
+    include ./partials/_postnav
+  else
+    include ./partials/_loginNav
   .row
     .large-12.columns
       a(href="/gallery/2")

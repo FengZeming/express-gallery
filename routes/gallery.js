@@ -23,7 +23,8 @@ router
         }
         // render our index template passing in the 2D array
         res.render('index', {
-          listings : listings2d
+          listings : listings2d,
+          user : req.user
         });
       });
   })
@@ -45,7 +46,9 @@ router
   * FORM TO POST NEW PHOTO
 */
 router.get('/new', ensureAuthenticated, function (req, res) {
-  res.render('new');
+  res.render('new', {
+    user : req.user
+  });
 });
 
 /*
@@ -70,7 +73,8 @@ router.get('/:id', function (req, res) {
           res.render('single', {
             listings : posts,
             detail : post,
-            id : req.params.id
+            id : req.params.id,
+            user : req.user
           });
         });
     });

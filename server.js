@@ -77,7 +77,7 @@ app.post('/login',
     failureRedirect : '/login',
     failureFlash : true
   }), function (req, res) {
-    return res.redirect(app.locals.attemptedUrl);
+    return res.redirect(app.locals.attemptedUrl || '/gallery');
   }
 );
 app.get('/logout', function (req, res) {
@@ -89,5 +89,3 @@ app.get('/logout', function (req, res) {
 var server = app.listen(3000, function(){
   db.sequelize.sync();
 });
-
-module.exports = app;
