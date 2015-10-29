@@ -1,6 +1,7 @@
 var express = require('express');
 var db = require('./../models');
 var router = express.Router();
+
 /*
   * GALLERY ROUTES
 */
@@ -27,7 +28,7 @@ router
       });
   })
 
-  .post(function (req, res) {
+  .post(ensureAuthenticated, function (req, res) {
     // create it in our database
     db.post.create({
       url : req.body.url,
@@ -43,7 +44,7 @@ router
 /*
   * FORM TO POST NEW PHOTO
 */
-router.get('/new', function (req, res) {
+router.get('/new', ensureAuthenticated, function (req, res) {
   res.render('new');
 });
 
@@ -77,6 +78,7 @@ router.get('/:id', function (req, res) {
 
 router
   .route('/:id/edit')
+  .all(ensureAuthenticated)
 
   .get(function (req, res) {
 
@@ -96,8 +98,7 @@ router
         url : req.body.url,
         shortDesc : req.body.shortDesc,
         link : req.body.link,
-        longDesc : req.body.longDesc
-      })
+        longDesc : req.body.longDesc })
       .then(function(newPost){
         res.redirect('/gallery/'+ newPost.id);
       });
@@ -114,6 +115,11 @@ router
       res.redirect('/gallery');
     })
   });
+
+function ensureAuthenticated (req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login');
+}
 
 // export for server.js
 module.exports = router;
