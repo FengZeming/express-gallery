@@ -19,7 +19,7 @@ app.use(session(
   {
     secret : 'asdgkcjsdhcadafhjksdjfhawkdjfhc',
     resave : false,
-    saveUnitialized : true
+    saveUninitialized : true
   }
 ));
 // parsing for http requests
@@ -43,6 +43,23 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, JSON.parse(obj));
 });
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    db.users.findAll({ where : { username : username }})
+      .then(function(user){
+        console.log('user', user[0].dataValues);
+        console.log('validPassword', user.validPassword);
+        if (!user) {
+          return done(null, false, { message : 'Incorrect username'});
+        }
+        if (!user.validPassword(password)) {
+          return done(null, false, { message : 'Incorrect password'});
+        }
+        return done(null, user);
+      });
+  }
+));
 
 app.use('/gallery', gallery);
 
@@ -73,5 +90,4 @@ app.get('/logout', function (req, res) {
 
 // sync our database on startup
 var server = app.listen(3000, function(){
-  db.sequelize.sync();
 });

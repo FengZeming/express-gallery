@@ -1,0 +1,11 @@
+extends ./layouts/mainLayout
+
+block content
+    form(action="/login" method="POST")
+      .row
+        .large-6.large-offset-3.columns
+          label Username
+            input(type="text" name="username" placeholder="...")
+          label Password
+            input(type="password" name="password" placeholder="...")
+            button POST
