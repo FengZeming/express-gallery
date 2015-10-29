@@ -3384,113 +3384,178 @@ label.error {
       .sub-nav li.active a:hover {
         background: #0078a0; }
 
-/* line 15, stdin */
+/* line 112, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+.alert-box {
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+  position: relative;
+  transition: opacity 300ms ease-out;
+  background-color: #008CBA;
+  border-color: #0078a0;
+  color: #FFFFFF; }
+  /* line 115, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box .close {
+    right: 0.25rem;
+    background: inherit;
+    color: #333333;
+    font-size: 1.375rem;
+    line-height: .9;
+    margin-top: -0.6875rem;
+    opacity: 0.3;
+    padding: 0 6px 4px;
+    position: absolute;
+    top: 50%; }
+    /* line 97, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+    .alert-box .close:hover,
+    .alert-box .close:focus {
+      opacity: 0.5; }
+  /* line 117, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.radius {
+    border-radius: 3px; }
+  /* line 118, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.round {
+    border-radius: 1000px; }
+  /* line 120, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.success {
+    background-color: #43AC6A;
+    border-color: #3a945b;
+    color: #FFFFFF; }
+  /* line 121, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.alert {
+    background-color: #f04124;
+    border-color: #de2d0f;
+    color: #FFFFFF; }
+  /* line 122, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.secondary {
+    background-color: #e7e7e7;
+    border-color: #c7c7c7;
+    color: #4f4f4f; }
+  /* line 123, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.warning {
+    background-color: #f08a24;
+    border-color: #de770f;
+    color: #FFFFFF; }
+  /* line 124, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.info {
+    background-color: #a0d3e8;
+    border-color: #74bfdd;
+    color: #4f4f4f; }
+  /* line 125, bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
+  .alert-box.alert-close {
+    opacity: 0; }
+
+/* line 16, stdin */
 html {
   font-size: 14px; }
 
-/* line 19, stdin */
+/* line 20, stdin */
 body {
   background-color: #fff; }
 
-/* line 23, stdin */
+/* line 24, stdin */
 h1 {
   color: #777; }
 
-/* line 27, stdin */
+/* line 28, stdin */
 img {
   box-shadow: none;
   opacity: 1; }
-  /* line 30, stdin */
+  /* line 31, stdin */
   img:hover {
     opacity: .9; }
 
-/* line 35, stdin */
+/* line 36, stdin */
 .header-container {
   margin: 5% auto; }
   @media only screen and (min-width: 40.0625em) {
-    /* line 35, stdin */
+    /* line 36, stdin */
     .header-container {
       border-top: 1px dashed #ccc; } }
 
-/* line 42, stdin */
+/* line 43, stdin */
 .header-info {
   margin: 3% 0 auto 5%;
   font-size: .9rem;
   color: #999;
   border-left: 1px dashed #ccc; }
 
-/* line 49, stdin */
+/* line 50, stdin */
 .header-title {
   margin: 3% auto;
   font-size: 5rem;
   font-weight: bold; }
   @media only screen and (max-width: 40em) {
-    /* line 49, stdin */
+    /* line 50, stdin */
     .header-title {
       font-size: 4.5rem;
       margin: 3%; } }
 
-/* line 59, stdin */
+/* line 60, stdin */
 .spacer {
   margin: 2%;
   border-top: 1px dashed #ccc; }
 
 @media only screen and (min-width: 40.0625em) {
-  /* line 64, stdin */
+  /* line 65, stdin */
   .image-listings {
     min-height: 17em;
     max-height: 17em;
     min-width: 100%; } }
 
 @media only screen and (max-width: 40em) {
-  /* line 72, stdin */
+  /* line 73, stdin */
   .image-container {
     margin: 3%; } }
 
-/* line 78, stdin */
+/* line 79, stdin */
 .image-info {
   margin-top: 5%;
   font-size: .9rem;
   color: #999; }
 
-/* line 84, stdin */
+/* line 85, stdin */
 .end-listing {
   margin-bottom: 5%; }
 
 @media only screen and (max-width: 40em) {
-  /* line 88, stdin */
+  /* line 89, stdin */
   .single-detail {
     margin-left: 5%;
     margin-right: 5%; } }
 
-/* line 95, stdin */
+/* line 96, stdin */
 .single-info {
   margin: 2% 2% 2% 0;
   font-size: 1.1rem;
   font-weight: bold;
   color: #bbb; }
 
-/* line 102, stdin */
+/* line 103, stdin */
 .single-details {
   margin-top: 5%;
   font-size: .9rem;
   color: #777; }
 
-/* line 108, stdin */
+/* line 109, stdin */
 .edit-info {
   margin-top: 5%; }
 
-/* line 112, stdin */
+/* line 113, stdin */
 .edit-button {
   margin-top: 5%; }
 
-/* line 116, stdin */
+/* line 117, stdin */
 .sidebar-info {
   margin-top: 5%;
   font-size: .9rem;
   font-weight: bold;
   color: #bbb; }
 
-/* line 123, stdin */
+/* line 124, stdin */
 .sidebar-container {
   margin: 2%; }

@@ -3,12 +3,16 @@ include ./mixins/generateSidebar
 include ./mixins/generateSingle
 
 block content
-  include ./partials/_postnav
+  if user
+    include ./partials/_postnav
+  else
+    include ./partials/_loginNav
   .row
     .medium-8.columns
       +generateSingle(detail)
-      a(href="/gallery/"+ id +"/edit")
-        button.edit-button EDIT
+      if user
+        a(href="/gallery/"+ id +"/edit")
+          button.edit-button EDIT
     .medium-4.columns
       +generateSidebar(listings)
     .large-12.columns

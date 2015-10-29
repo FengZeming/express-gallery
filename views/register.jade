@@ -1,0 +1,17 @@
+extends ./layouts/mainLayout
+
+block content
+    form(action="/register" method="POST" enctype="application/x-www-urlencoded")
+      .row
+        .large-6.large-offset-3.columns
+          label Username
+            input(type="text" name="username" placeholder="...")
+          label Password
+            input(type="password" name="password" placeholder="...")
+          label Confirm Password
+            input(type="password" name="confirmPassword" placeholder="...")
+            button REGISTER
+        if messages
+          div(data-alert="").alert-box.alert
+            |#{messages}
+            a(href="/register").close &times;

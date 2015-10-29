@@ -85,6 +85,26 @@ app.get('/logout', function (req, res) {
   res.render('logout');
 });
 
+app.get('/register', function (req, res) {
+  res.render('register');
+});
+
+app.post('/register', function (req, res) {
+  if (req.body.password == req.body.confirmPassword) {
+    db.users.create({
+      username : req.body.username,
+      password : req.body.password,
+      confirmPassword : req.body.confirmPassword
+    }).then(function() {
+      res.redirect('/login');
+    });
+  } else {
+    res.render('register', {
+      messages: 'Passwords do not match.'
+    });
+  }
+});
+
 // sync our database on startup
 var server = app.listen(3000, function(){
   db.sequelize.sync();
