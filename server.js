@@ -7,6 +7,7 @@ var flash = require('connect-flash');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var gallery = require('./routes/gallery');
+var register = require('./routes/register');
 var methodOverride = require('method-override');
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -59,7 +60,7 @@ passport.use(new LocalStrategy(
   }
 ));
 app.use('/gallery', gallery);
-
+app.use('/register', register);
 // redirect home route to main landing page
 app.get('/', function (req, res) {
   res.redirect('/gallery');
@@ -83,26 +84,6 @@ app.post('/login',
 app.get('/logout', function (req, res) {
   req.logout();
   res.render('logout');
-});
-
-app.get('/register', function (req, res) {
-  res.render('register');
-});
-
-app.post('/register', function (req, res) {
-  if (req.body.password == req.body.confirmPassword) {
-    db.users.create({
-      username : req.body.username,
-      password : req.body.password,
-      confirmPassword : req.body.confirmPassword
-    }).then(function() {
-      res.redirect('/login');
-    });
-  } else {
-    res.render('register', {
-      messages: 'Passwords do not match.'
-    });
-  }
 });
 
 // sync our database on startup
