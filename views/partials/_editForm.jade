@@ -1,0 +1,11 @@
+form(action="/gallery/#{id}/edit" method="POST" enctype="application/x-www-form-urlencoded")
+    label Picture URL
+      input(type="text" name="url" value=detail.url)
+    label Short Description
+      input(type="text" name="shortDesc" value=detail.shortDesc)
+    label Official Link
+      input(type="text" name="link" value=detail.link)
+    label Long Description
+      textarea(type="text" name="longDesc") #{detail.longDesc}
+    button.button.success SAVE
+      input(type="hidden" name="_method" value="PUT")
