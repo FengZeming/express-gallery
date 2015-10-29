@@ -2,21 +2,15 @@ module.exports = function(sequelize, DataTypes) {
 
   // define new table entry for posting
   var User = sequelize.define('users', {
-    username : DataTypes.STRING,
+    username : { type : DataTypes.STRING, unique : true },
     password : DataTypes.STRING
   }, {
-    classMethods : {
+    instanceMethods : {
       validPassword : function (password) {
         return (password === this.password);
       }
     },
     freezeTableName: true
-  });
-  User.sync({ force : true }).then(function() {
-    User.create({
-      username : 'alexAdmin',
-      password : 'password'
-    })
   });
   return User;
 };

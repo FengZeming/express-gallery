@@ -46,10 +46,8 @@ passport.deserializeUser(function(obj, done) {
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    db.users.findAll({ where : { username : username }})
+    db.users.findOne({ where : { username : username }})
       .then(function(user){
-        console.log('user', user[0].dataValues);
-        console.log('validPassword', user.validPassword);
         if (!user) {
           return done(null, false, { message : 'Incorrect username'});
         }
@@ -60,7 +58,13 @@ passport.use(new LocalStrategy(
       });
   }
 ));
-
+app.post('/login',
+  passport.authenticate('local', {
+    successRedirect : '/gallery',
+    failureRedirect : '/login',
+    failureFlash : true
+  })
+);
 app.use('/gallery', gallery);
 
 // redirect home route to main landing page
@@ -68,13 +72,6 @@ app.get('/', function (req, res) {
   res.redirect('/gallery');
 });
 
-app.post('/login',
-  passport.authenticate('local', {
-    sucessRedirect : '/gallery',
-    failureRedirect : '/login',
-    failureFlash : true
-  })
-);
 
 app.get('/login', function (req, res) {
   res.render('login', {
@@ -88,6 +85,9 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
+
+
 // sync our database on startup
 var server = app.listen(3000, function(){
+  db.sequelize.sync();
 });
