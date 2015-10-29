@@ -58,20 +58,12 @@ passport.use(new LocalStrategy(
       });
   }
 ));
-app.post('/login',
-  passport.authenticate('local', {
-    successRedirect : '/gallery',
-    failureRedirect : '/login',
-    failureFlash : true
-  })
-);
 app.use('/gallery', gallery);
 
 // redirect home route to main landing page
 app.get('/', function (req, res) {
   res.redirect('/gallery');
 });
-
 
 app.get('/login', function (req, res) {
   res.render('login', {
@@ -80,14 +72,22 @@ app.get('/login', function (req, res) {
   });
 });
 
+app.post('/login',
+  passport.authenticate('local', {
+    failureRedirect : '/login',
+    failureFlash : true
+  }), function (req, res) {
+    return res.redirect(app.locals.attemptedUrl);
+  }
+);
 app.get('/logout', function (req, res) {
   req.logout();
-  res.redirect('/');
+  res.render('logout');
 });
-
-
 
 // sync our database on startup
 var server = app.listen(3000, function(){
   db.sequelize.sync();
 });
+
+module.exports = app;
