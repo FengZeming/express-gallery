@@ -5,18 +5,18 @@ block content
   .row
     .large-12.columns
       +generateSingle(detail)
+    .large-12.columns.edit-info
       form(action="/gallery/#{id}/edit" method="POST" enctype="application/x-www-form-urlencoded")
-        .large-6.large-offset-3.columns.edit-info
           label Picture URL
-            input(type="text" name="url" placeholder="...")
+            input(type="text" name="url" value=detail.url)
           label Short Description
-            input(type="text" name="shortDesc" placeholder="...")
+            input(type="text" name="shortDesc" value=detail.shortDesc)
           label Official Link
-            input(type="text" name="link" placeholder="...")
+            input(type="text" name="link" value=detail.link)
           label Long Description
-            textarea(type="text" name="longDesc" placeholder="...")
-          button SAVE
+            textarea(type="text" name="longDesc") #{detail.longDesc}
+          button.button.success SAVE
             input(type="hidden" name="_method" value="PUT")
       form(action="/gallery/#{id}/edit" method="POST" enctype="application/x-www-form-urlencoded")
-        button DELETE
+        button.button.alert DELETE
           input(type="hidden" name="_method" value="DELETE")

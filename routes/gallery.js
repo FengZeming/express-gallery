@@ -6,6 +6,7 @@ var router = express.Router();
 */
 router
   .route('/')
+
   .get(function (req, res) {
     // get all posts from our database
     db.post.findAll({ order : '"createdAt" DESC'})
@@ -25,6 +26,7 @@ router
         });
       });
   })
+
   .post(function (req, res) {
     // create it in our database
     db.post.create({
@@ -45,13 +47,20 @@ router.get('/new', function (req, res) {
   res.render('new');
 });
 
-
 /*
   * INDIVIDUAL PAGES W/ SIDEBAR
 */
 router.get('/:id', function (req, res) {
   // grab all of our posts for the sidebar
-  db.post.findAll({ limit : 3})
+  db.post.findAll({
+    limit : 3,
+    order : '"createdAt" DESC',
+    where : {
+      id : {
+        $ne : req.params.id
+      }
+    }
+  })
     .then(function(posts){
       // then find our single post by id
       db.post.findById(req.params.id)
@@ -68,6 +77,7 @@ router.get('/:id', function (req, res) {
 
 router
   .route('/:id/edit')
+
   .get(function (req, res) {
 
     db.post.findById(req.params.id)
@@ -78,8 +88,8 @@ router
         });
       });
   })
-  .put(function(req, res) {
 
+  .put(function(req, res) {
     db.post.findById(req.params.id)
     .then(function(foundPost) {
       foundPost.update({
@@ -93,6 +103,7 @@ router
       });
     });
   })
+
   .delete(function(req, res){
     db.post.destroy({
       where : {
