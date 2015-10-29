@@ -3481,12 +3481,16 @@ img {
   margin-top: 5%; }
 
 /* line 112, stdin */
+.edit-button {
+  margin-top: 5%; }
+
+/* line 116, stdin */
 .sidebar-info {
   margin-top: 5%;
   font-size: .9rem;
   font-weight: bold;
   color: #bbb; }
 
-/* line 119, stdin */
+/* line 123, stdin */
 .sidebar-container {
   margin: 2%; }
