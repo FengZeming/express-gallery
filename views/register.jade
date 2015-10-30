@@ -11,7 +11,7 @@ block content
           label Confirm Password
             input(type="password" name="confirmPassword" placeholder="...")
             button REGISTER
-        if messages
-          div(data-alert="").alert-box.alert
-            |#{messages}
-            a(href="/register").close &times;
+        .large-6.large-offset-3.columns
+          if messages
+            div(data-alert="").alert-box.alert #{messages}
+              a(href="/register").close &times;

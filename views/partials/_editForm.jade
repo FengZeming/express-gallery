@@ -7,5 +7,5 @@ form(action="/gallery/#{id}/edit" method="POST" enctype="application/x-www-form-
       input(type="text" name="link" value=detail.link)
     label Long Description
       textarea(type="text" name="longDesc") #{detail.longDesc}
-    button.button.success SAVE
+    button.button.success.radius SAVE
       input(type="hidden" name="_method" value="PUT")

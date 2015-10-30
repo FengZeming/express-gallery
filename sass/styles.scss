@@ -4,7 +4,6 @@
 @import 'foundation/components/grid';
 @import 'foundation/components/visibility';
 @import 'foundation/components/type';
-@import 'foundation/components/block-grid';
 @import 'foundation/components/forms';
 @import 'foundation/components/sub-nav';
 @import 'foundation/components/alert-boxes';
@@ -22,7 +21,7 @@ html{
 }
 
 body{
-  background-image: url('./../public/img/snow.png');
+  background-image: url('./../img/snow.png');
 }
 
 h1{
@@ -33,7 +32,7 @@ img{
   box-shadow: none;
   opacity: 1;
   &:hover{
-    opacity: .9;
+    opacity: .95;
   }
 }
 

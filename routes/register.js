@@ -10,22 +10,29 @@ router
   })
   // password confirmation first
   .post(function (req, res) {
-    if (req.body.password == req.body.confirmPassword) {
-      // create user
-      db.users.create({
-        username : req.body.username,
-        password : req.body.password
-      }).then(function(user) {
-        // redirect to login page
-        req.login(user, function (){
-          res.redirect('/gallery');
-        });
-      });
-    } else {
-      res.render('register', {
-        messages: 'Passwords do not match.'
-      });
-    }
+    db.users.findOne({ where : { username : req.body.username }})
+      .then(function(user) {
+        if (req.body.password == req.body.confirmPassword && !user) {
+          // create user
+          db.users.create({
+            username : req.body.username,
+            password : req.body.password
+          }).then(function(user) {
+            // redirect to login page
+            req.login(user, function (){
+              res.redirect('/gallery');
+            });
+          });
+        } else if (user) {
+          res.render('register', {
+            messages: 'Username already exists.'
+          });
+        } else {
+          res.render('register', {
+            messages: 'Passwords do not match.'
+          });
+        }
+      })
   });
 
 module.exports = router;
