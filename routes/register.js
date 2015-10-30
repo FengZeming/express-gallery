@@ -1,6 +1,7 @@
 var express = require('express');
 var db = require('./../models');
 var router = express.Router();
+var bcrypt = require('bcrypt');
 
 router
   .route('/')
@@ -13,16 +14,18 @@ router
     db.users.findOne({ where : { username : req.body.username }})
       .then(function(user) {
         if (req.body.password == req.body.confirmPassword && !user) {
-          // create user
-          db.users.create({
-            username : req.body.username,
-            password : req.body.password
-          }).then(function(user) {
-            // redirect to login page
-            req.login(user, function (){
-              res.redirect('/gallery');
+          bcrypt.hash(req.body.password, 8, function (err, hash) {
+            db.users.create({
+              username : req.body.username,
+              password : hash
+            }).then(function(user) {
+              // redirect to login page
+              req.login(user, function (){
+                res.redirect('/gallery');
+              });
             });
-          });
+          })
+          // create user
         } else if (user) {
           res.render('register', {
             messages: 'Username already exists.'

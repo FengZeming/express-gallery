@@ -5,11 +5,6 @@ module.exports = function(sequelize, DataTypes) {
     username : { type : DataTypes.STRING, unique : true },
     password : DataTypes.STRING
   }, {
-    instanceMethods : {
-      validPassword : function (password) {
-        return (password === this.password);
-      }
-    },
     freezeTableName: true
   });
   return User;

@@ -10,7 +10,7 @@ var gallery = require('./routes/gallery');
 var register = require('./routes/register');
 var methodOverride = require('method-override');
 var LocalStrategy = require('passport-local').Strategy;
-
+var bcrypt = require('bcrypt');
 
 // using jade templating
 app.set('view engine', 'jade');
@@ -42,11 +42,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser(function(user, done) {
-  done(null, JSON.stringify(user));
+  done(null, user.id);
 });
 
-passport.deserializeUser(function(obj, done) {
-  done(null, JSON.parse(obj));
+passport.deserializeUser(function(id, done) {
+  db.users.findById(id)
+    .then(function(user) {
+      done(null, user);
+    });
 });
 
 // local strategy checks our local DB to authenticate users
@@ -57,7 +60,7 @@ passport.use(new LocalStrategy(
         if (!user) {
           return done(null, false, { message : 'Incorrect username'});
         }
-        if (!user.validPassword(password)) {
+        if (!bcrypt.compareSync(password, user.password)) {
           return done(null, false, { message : 'Incorrect password'});
         }
         return done(null, user);
@@ -84,9 +87,7 @@ app.post('/login', function (req, res, next) {
   passport.authenticate('local', function (err, user, info) {
     // default route is gallery
     if (!user) {
-      return res.render('login', {
-        message: 'Invalid login'
-      });
+      return res.render('login', info);
     }
     req.logIn(user, function() {
       return res.redirect(app.locals.attemptedUrl || '/gallery');
