@@ -3,9 +3,13 @@ extends ./layouts/mainLayout
 block content
     form(action="/login" method="POST" enctype="application/x-www-urlencoded")
       .row
-        .large-6.large-offset-3.columns
+        .large-12.columns
           label Username
             input(type="text" name="username" placeholder="...")
           label Password
             input(type="password" name="password" placeholder="...")
             button LOGIN
+        .large-6.large-offset-3.columns
+          if message
+            div(data-alert="").alert-box.alert #{message}
+              a(href="/login").close &times;

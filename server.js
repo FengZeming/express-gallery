@@ -74,25 +74,25 @@ app.get('/', function (req, res) {
 });
 // get login page
 app.get('/login', function (req, res) {
-  res.render('login', {
-    user : req.user,
-    messages : req.flash('error')
-  });
+  res.render('login');
 });
 
 // post, if the user attempted to click on an edit route,
 // will redirect them back to the page they tried to
 // access before hand
-app.post('/login',
-  passport.authenticate('local', {
-    failureRedirect : '/login',
-    failureFlash : true
-  }), function (req, res) {
-
+app.post('/login', function (req, res, next) {
+  passport.authenticate('local', function (err, user, info) {
     // default route is gallery
-    return res.redirect(app.locals.attemptedUrl || '/gallery');
-  }
-);
+    if (!user) {
+      return res.render('login', {
+        message: 'Invalid login'
+      });
+    }
+    req.logIn(user, function() {
+      return res.redirect(app.locals.attemptedUrl || '/gallery');
+    });
+  })(req, res, next);
+});
 // logout user then render our logout page for responsiveness
 app.get('/logout', function (req, res) {
   req.logout();
