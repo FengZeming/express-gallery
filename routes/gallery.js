@@ -127,6 +127,7 @@ router
       res.redirect('/gallery');
     })
   });
+
 // make sure user is authenticated
 function ensureAuthenticated (req, res, next) {
   if (req.isAuthenticated()) { return next(); }
@@ -135,14 +136,15 @@ function ensureAuthenticated (req, res, next) {
   res.redirect('/login');
 }
 function ensureExists (req, res, next) {
-  if (typeof req.params.id == 'number') {
+  if (typeof parseInt(req.params.id) === 'number') {
     db.users.findById(req.params.id)
-      .then(function (user){
-        if (user) { return next(); }
+      .then(function (user) {
+        if (user){ return next() };
+        res.redirect('/404');
       });
+  } else {
+    res.redirect('/404');
   }
-  res.render('404');
-
 }
 // export for server.js
 module.exports = router;

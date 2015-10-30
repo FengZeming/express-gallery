@@ -99,8 +99,12 @@ app.get('/logout', function (req, res) {
   res.render('logout');
 });
 
-app.all('*', function (req, res ){
+app.get('/404', function (req, res) {
   res.render('404');
+});
+
+app.all('*', function (req, res ){
+  res.redirect('/404');
 });
 // sync our database on startup
 var server = app.listen(3000, function(){
