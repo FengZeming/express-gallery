@@ -1,7 +1,0 @@
-TODO:
-
-create split button with DELETE and EDIT options
-on single.jade template
-
-hookup routes && handle DELETE/PUT requests in
-gallery router

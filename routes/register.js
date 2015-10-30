@@ -8,15 +8,18 @@ router
   .get(function (req, res) {
     res.render('register');
   })
-
+  // password confirmation first
   .post(function (req, res) {
     if (req.body.password == req.body.confirmPassword) {
+      // create user
       db.users.create({
         username : req.body.username,
-        password : req.body.password,
-        confirmPassword : req.body.confirmPassword
-      }).then(function() {
-        res.redirect('/login');
+        password : req.body.password
+      }).then(function(user) {
+        // redirect to login page
+        req.login(user, function (){
+          res.redirect('/gallery');
+        });
       });
     } else {
       res.render('register', {

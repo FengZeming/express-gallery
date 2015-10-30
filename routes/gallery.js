@@ -86,10 +86,11 @@ router.get('/:id', function (req, res) {
 
 router
   .route('/:id/edit')
+  // before each edit route, ensure the user is authenticated
   .all(ensureAuthenticated)
 
   .get(function (req, res) {
-
+    // find by the id passed in through the url
     db.post.findById(req.params.id)
       .then(function(post){
         res.render('edit', {
@@ -98,21 +99,23 @@ router
         });
       });
   })
-
+  // find by id
   .put(function(req, res) {
     db.post.findById(req.params.id)
     .then(function(foundPost) {
+      // then update
       foundPost.update({
         url : req.body.url,
         shortDesc : req.body.shortDesc,
         link : req.body.link,
         longDesc : req.body.longDesc })
       .then(function(newPost){
+        // then redirect to its detail page
         res.redirect('/gallery/'+ newPost.id);
       });
     });
   })
-
+  // delete user from database
   .delete(function(req, res){
     db.post.destroy({
       where : {
@@ -120,12 +123,14 @@ router
       }
     })
     .then(function(){
+      // then redirect to gallery
       res.redirect('/gallery');
     })
   });
-
+// make sure user is authenticated
 function ensureAuthenticated (req, res, next) {
   if (req.isAuthenticated()) { return next(); }
+  // if user attempted to access a route, store it to return them afterwards
   req.app.locals.attemptedUrl = '/gallery' + req.url;
   res.redirect('/login');
 }

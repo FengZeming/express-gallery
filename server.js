@@ -15,7 +15,11 @@ var LocalStrategy = require('passport-local').Strategy;
 // using jade templating
 app.set('view engine', 'jade');
 app.set('views', './views');
+
+// static html files in public directory
 app.use(express.static('./public'));
+
+// using express sessions for user authentication
 app.use(session(
   {
     secret : 'asdgkcjsdhcadafhjksdjfhawkdjfhc',
@@ -45,6 +49,7 @@ passport.deserializeUser(function(obj, done) {
   done(null, JSON.parse(obj));
 });
 
+// local strategy checks our local DB to authenticate users
 passport.use(new LocalStrategy(
   function(username, password, done) {
     db.users.findOne({ where : { username : username }})
@@ -59,13 +64,15 @@ passport.use(new LocalStrategy(
       });
   }
 ));
+
+// common routes
 app.use('/gallery', gallery);
 app.use('/register', register);
 // redirect home route to main landing page
 app.get('/', function (req, res) {
   res.redirect('/gallery');
 });
-
+// get login page
 app.get('/login', function (req, res) {
   res.render('login', {
     user : req.user,
@@ -73,14 +80,20 @@ app.get('/login', function (req, res) {
   });
 });
 
+// post, if the user attempted to click on an edit route,
+// will redirect them back to the page they tried to
+// access before hand
 app.post('/login',
   passport.authenticate('local', {
     failureRedirect : '/login',
     failureFlash : true
   }), function (req, res) {
+
+    // default route is gallery
     return res.redirect(app.locals.attemptedUrl || '/gallery');
   }
 );
+// logout user then render our logout page for responsiveness
 app.get('/logout', function (req, res) {
   req.logout();
   res.render('logout');
