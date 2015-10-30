@@ -14,17 +14,15 @@ router
     db.users.findOne({ where : { username : req.body.username }})
       .then(function(user) {
         if (req.body.password == req.body.confirmPassword && !user) {
-          bcrypt.hash(req.body.password, 8, function (err, hash) {
             db.users.create({
               username : req.body.username,
-              password : hash
+              password : req.body.password
             }).then(function(user) {
               // redirect to login page
               req.login(user, function (){
                 res.redirect('/gallery');
               });
             });
-          })
           // create user
         } else if (user) {
           res.render('register', {
