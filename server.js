@@ -99,6 +99,9 @@ app.get('/logout', function (req, res) {
   res.render('logout');
 });
 
+app.all('*', function (req, res ){
+  res.render('404');
+});
 // sync our database on startup
 var server = app.listen(3000, function(){
   db.sequelize.sync();

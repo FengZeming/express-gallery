@@ -58,7 +58,7 @@ router.get('/new', ensureAuthenticated, function (req, res) {
 /*
   * INDIVIDUAL PAGES W/ SIDEBAR
 */
-router.get('/:id', function (req, res) {
+router.get('/:id', ensureExists, function (req, res) {
   // grab all of our posts for the sidebar
   db.post.findAll({
     limit : 3,
@@ -87,7 +87,7 @@ router.get('/:id', function (req, res) {
 router
   .route('/:id/edit')
   // before each edit route, ensure the user is authenticated
-  .all(ensureAuthenticated)
+  .all(ensureAuthenticated, ensureExists)
 
   .get(function (req, res) {
     // find by the id passed in through the url
@@ -134,6 +134,15 @@ function ensureAuthenticated (req, res, next) {
   req.app.locals.attemptedUrl = '/gallery' + req.url;
   res.redirect('/login');
 }
+function ensureExists (req, res, next) {
+  if (typeof req.params.id == 'number') {
+    db.users.findById(req.params.id)
+      .then(function (user){
+        if (user) { return next(); }
+      });
+  }
+  res.render('404');
 
+}
 // export for server.js
 module.exports = router;
