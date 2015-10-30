@@ -3449,113 +3449,113 @@ label.error {
   .alert-box.alert-close {
     opacity: 0; }
 
-/* line 16, stdin */
+/* line 20, stdin */
 html {
   font-size: 14px; }
 
-/* line 20, stdin */
-body {
-  background-color: #fff; }
-
 /* line 24, stdin */
+body {
+  background-image: url("./../public/img/snow.png"); }
+
+/* line 28, stdin */
 h1 {
   color: #777; }
 
-/* line 28, stdin */
+/* line 32, stdin */
 img {
   box-shadow: none;
   opacity: 1; }
-  /* line 31, stdin */
+  /* line 35, stdin */
   img:hover {
     opacity: .9; }
 
-/* line 36, stdin */
+/* line 40, stdin */
 .header-container {
   margin: 5% auto; }
   @media only screen and (min-width: 40.0625em) {
-    /* line 36, stdin */
+    /* line 40, stdin */
     .header-container {
       border-top: 1px dashed #ccc; } }
 
-/* line 43, stdin */
+/* line 47, stdin */
 .header-info {
   margin: 3% 0 auto 5%;
   font-size: .9rem;
   color: #999;
   border-left: 1px dashed #ccc; }
 
-/* line 50, stdin */
+/* line 54, stdin */
 .header-title {
   margin: 3% auto;
   font-size: 5rem;
   font-weight: bold; }
   @media only screen and (max-width: 40em) {
-    /* line 50, stdin */
+    /* line 54, stdin */
     .header-title {
       font-size: 4.5rem;
       margin: 3%; } }
 
-/* line 60, stdin */
+/* line 64, stdin */
 .spacer {
-  margin: 2%;
+  margin: 3%;
   border-top: 1px dashed #ccc; }
 
 @media only screen and (min-width: 40.0625em) {
-  /* line 65, stdin */
+  /* line 69, stdin */
   .image-listings {
     min-height: 17em;
     max-height: 17em;
     min-width: 100%; } }
 
 @media only screen and (max-width: 40em) {
-  /* line 73, stdin */
+  /* line 77, stdin */
   .image-container {
     margin: 3%; } }
 
-/* line 79, stdin */
+/* line 83, stdin */
 .image-info {
   margin-top: 5%;
   font-size: .9rem;
   color: #999; }
 
-/* line 85, stdin */
+/* line 89, stdin */
 .end-listing {
   margin-bottom: 5%; }
 
 @media only screen and (max-width: 40em) {
-  /* line 89, stdin */
+  /* line 93, stdin */
   .single-detail {
     margin-left: 5%;
     margin-right: 5%; } }
 
-/* line 96, stdin */
+/* line 100, stdin */
 .single-info {
   margin: 2% 2% 2% 0;
   font-size: 1.1rem;
   font-weight: bold;
   color: #bbb; }
 
-/* line 103, stdin */
+/* line 107, stdin */
 .single-details {
   margin-top: 5%;
   font-size: .9rem;
   color: #777; }
 
-/* line 109, stdin */
+/* line 113, stdin */
 .edit-info {
   margin-top: 5%; }
 
-/* line 113, stdin */
+/* line 117, stdin */
 .edit-button {
   margin-top: 5%; }
 
-/* line 117, stdin */
+/* line 121, stdin */
 .sidebar-info {
   margin-top: 5%;
   font-size: .9rem;
   font-weight: bold;
   color: #bbb; }
 
-/* line 124, stdin */
+/* line 128, stdin */
 .sidebar-container {
-  margin: 2%; }
+  margin: 3%; }
