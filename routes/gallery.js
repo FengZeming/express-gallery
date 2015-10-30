@@ -137,9 +137,9 @@ function ensureAuthenticated (req, res, next) {
 }
 function ensureExists (req, res, next) {
   if (typeof parseInt(req.params.id) === 'number') {
-    db.users.findById(req.params.id)
-      .then(function (user) {
-        if (user){ return next() };
+    db.post.findById(req.params.id)
+      .then(function (post) {
+        if (post){ return next() };
         res.redirect('/404');
       });
   } else {
