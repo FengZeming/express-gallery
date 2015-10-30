@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var nodemon = require('gulp-nodemon');
 
 gulp.task('sass', function () {
   return gulp.src('./sass/*.scss')
@@ -15,4 +16,11 @@ gulp.task('watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
-gulp.task('default', ['watch', 'sass']);
+gulp.task('start', function () {
+  nodemon({
+    script : 'server.js'
+  });
+});
+
+gulp.task('default', ['watch', 'sass', 'start']);
+

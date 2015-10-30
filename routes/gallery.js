@@ -10,13 +10,16 @@ router
 
   .get(function (req, res) {
     // get all posts from our database
-    db.post.findAll({ order : '"createdAt" DESC'})
+    db.post.findAll({
+      order : '"createdAt" DESC'
+    })
       .then(function(posts){
         // grab a copy
         var listingCopy = posts.map(function (c) {
           return c;
         });
         var listings2d = [];
+        var masthead = listingCopy.splice(0, 1)[0];
         while(listingCopy.length) {
           // convert it to a 2D array for templating purposes
           listings2d.push(listingCopy.splice(0, 3));
@@ -24,7 +27,8 @@ router
         // render our index template passing in the 2D array
         res.render('index', {
           listings : listings2d,
-          user : req.user
+          user : req.user,
+          masthead : masthead
         });
       });
   })
