@@ -1,7 +1,7 @@
 Express Gallery
 ===============
 
-See it in action [here](express-gallery-app.heroku.com)
+See it in action [here](https://express-gallery-app.herokuapp.com/)
 
 Express, Sequelize, HTML5, stored on PostgreSQL
 
