@@ -1,6 +1,8 @@
 Express Gallery
 ===============
 
+See it in action at : express-gallery-app.heroku.com
+
 Express, Sequelize, HTML5, stored on PostgreSQL
 
 A content-driven gallery website that allows users to perform basic CRUD operations.
