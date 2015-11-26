@@ -15,11 +15,7 @@ if (process.env.DATABASE_URL) {
     loggin: true
   });
 } else {
-  var sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config);
+  var sequelize = new Sequelize("postgres:///my_db");
 }
 
 fs
