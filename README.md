@@ -3,9 +3,11 @@ Express Gallery
 
 Express, Sequelize, HTML5, stored on PostgreSQL
 
-Use the Express, Sequelize, and *almost* any other library or templating engines you want to fulfill the requirements.
-recommended: jade, bower, sass, foundation.
-helpful: livereload, gulp for watching compiling sass
+A content-driven gallery website that allows users to perform basic CRUD operations.
+
+---
+
+![]('express-gallery-app.herokuapp.com!gallery!15-600x400.png')
 
 ---
 
@@ -31,13 +33,3 @@ Any user should be able to access these routes:
 - `DELETE /gallery/:id` to delete a single gallery photo identified by the `:id` param
 
 ---
-
-The layout of the app must match the layouts included in `/layouts`.
-Match the layout as close as you can, using free and open fonts and graphics.
-
----
-
-#### Responsive Layout
-
-- does not have tablet layout
-- uses a background image that is not included, you will have to find something similar (subtlepatterns.com)
