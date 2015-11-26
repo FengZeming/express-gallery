@@ -9,7 +9,7 @@ A content-driven gallery website that allows users to perform basic CRUD operati
 
 ---
 
-![]('/../master/express-gallery-app.herokuapp.com!gallery!15-600x400.png')
+![]('/../express-gallery-app.herokuapp.com!gallery!15-600x400.png')
 
 ---
 
