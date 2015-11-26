@@ -8,7 +8,7 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = {
   "username" : process.env.USERNAME,
   "password" : process.env.PASSWORD,
-  "database" : process.env.DATABASE_URL,
+  "database" : process.env.DATABASE,
   "host" : "127.0.0.1",
   "dialect" : "postgres"
 } || require(__dirname.replace('/models','') + '/../config/config.json')[env];
