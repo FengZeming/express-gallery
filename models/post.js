@@ -1,27 +1,32 @@
 module.exports = function(sequelize, DataTypes) {
-
   // define new table entry for posting
-  var Post = sequelize.define('post', {
+  var Post = sequelize.define('Post', {
     url : {
-      type: DataTypes.STRING,
+      type : DataTypes.STRING,
       allowNull : false
     },
-    shortDesc : {
-      type: DataTypes.TEXT,
+    title : {
+      type : DataTypes.TEXT,
       allowNull : false
     },
     link : {
-      type: DataTypes.STRING,
+      type : DataTypes.STRING,
       allowNull : false
     },
-    longDesc : {
-      type: DataTypes.TEXT,
+    info : {
+      type : DataTypes.TEXT,
       allowNull : false
     }
   }, {
-
-    // makes our reference to the defined name
-    freezeTableName: true
+    classMethods : {
+      associate : function(models) {
+        Post.belongsTo(models.User);
+      }
+    }
+  }, {
+    // Disable modification of tablenames. makes table into photo not photos
+    freezeTableName : true
   });
+
   return Post;
 };

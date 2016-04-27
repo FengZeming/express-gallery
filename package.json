@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "engines" : {
-    "npm" : "3.3.6",
-    "node" : "5.0.0"
+  "engines": {
+    "npm": "3.3.6",
+    "node": "5.0.0"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "sequelize": "^3.13.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.12.5",
     "gulp": "^3.9.0",
     "gulp-connect": "^2.2.0",
     "gulp-nodemon": "^2.0.4",
